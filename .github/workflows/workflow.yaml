@@ -32,6 +32,8 @@ jobs:
     - name: Install Python dependencies
       working-directory: ./main
       run: poetry install
-    - name: Test with pytest
+    - name: Test & Generate Coverage Report
+      working-directory: ./main
       run: |
-        pytest
+        poetry run coverage run --source ${{ env.PROJECT_FOLDER }}/ -m pytest
+        poetry run coverage xml
