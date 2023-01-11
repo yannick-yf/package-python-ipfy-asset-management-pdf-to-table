@@ -45,3 +45,13 @@ commands:
           path: ./coverage/reports
       - store_artifacts:
           path: ./coverage
+jobs:
+  install-build-test-coverage:
+    docker:
+      - image: cimg/python:3.9
+    steps:
+      - poetry-setup
+      - python-install-dev
+      - python-pylint
+      - python-test
+      - python-report
