@@ -22,9 +22,9 @@ jobs:
       with:
         path: main
     - name: Setup python versions
-            uses: actions/setup-python@v3
-            with:
-              python-version: ${{ env.PYTHON_VERSION }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
     - name: Install Poetry
       uses: abatilo/actions-poetry@v2.1.6
       with:
