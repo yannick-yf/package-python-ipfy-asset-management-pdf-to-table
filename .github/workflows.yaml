@@ -1,0 +1,34 @@
+name: CI - Workflow
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+env:
+  PROJECT_FOLDER: ipfy_asset_management_pdf_to_table
+  PYTHON_VERSION: 3.9
+  POETRY_VERSION: 1.1.15
+jobs:
+  runs-on: ubuntu-latest
+  install-test-coverage:
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: main
+      - name: Setup python versions
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v2.1.6
+        with:
+          poetry-version: ${{ env.POETRY_VERSION }}
+      - name: Install Python dependencies
+        working-directory: ./main
+        run: poetry install
+      - name: Test & Generate Coverage Report
+        working-directory: ./main
+        run: |
+          poetry run coverage run --source ${{ env.PROJECT_FOLDER }}/ -m pytest
+          poetry run coverage xml
