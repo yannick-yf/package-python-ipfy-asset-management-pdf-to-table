@@ -1072,6 +1072,14 @@ docs = ["myst-parser", "pydata-sphinx-theme", "sphinx"]
 test = ["argcomplete (>=2.0)", "pre-commit", "pytest", "pytest-mock"]
 
 [[package]]
+name = "typing"
+version = "3.5.0"
+description = "Type Hints for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -1121,7 +1129,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "6b88708d15321570b4367753bcf3f3c6e0fad23e0501e3fc7de85ce28887f54d"
+content-hash = "1a4c408c845e00133b13f8b573ea6c355833580e49d6440f67d107bbec5843f5"
 
 [metadata.files]
 appnope = [
@@ -2004,6 +2012,9 @@ tornado = [
 traitlets = [
     {file = "traitlets-5.8.1-py3-none-any.whl", hash = "sha256:a1ca5df6414f8b5760f7c5f256e326ee21b581742114545b462b35ffe3f04861"},
     {file = "traitlets-5.8.1.tar.gz", hash = "sha256:32500888f5ff7bbf3b9267ea31748fa657aaf34d56d85e60f91dda7dc7f5785b"},
+]
+typing = [
+    {file = "typing-3.5.0.tar.gz", hash = "sha256:7340d54262034a88a82e2d698147bfb1ed90410162e1b69deb3d559aca232ca1"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.4.0-py3-none-any.whl", hash = "sha256:16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e"},
