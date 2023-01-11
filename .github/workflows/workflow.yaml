@@ -8,15 +8,14 @@ on:
     branches: [ master, main ]
   pull_request:
     branches: [ master, main ]
+env:
+  PROJECT_FOLDER: ipfy_asset_management_pdf_to_table
+  PYTHON_VERSION: 3.9
+  POETRY_VERSION: 1.1.14
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.8", "3.9", "3.10"]
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
