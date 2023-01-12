@@ -7,14 +7,13 @@ from ipfy_asset_management_pdf_to_table import (
 
 def test_textract_zip_process():
 
-    list_file_unzipped = TextractZipToDataFrame.unzip_textract_zip_file(
-        path_to_zip_file = './tests/data_example/example.zip',
-        directory_to_extract_to = './tests/data_example/unzipped'
+    textract_zip = TextractZipToDataFrame(directory_to_extract_to = './tests/data_example/unzipped')
+
+    list_file_unzipped = textract_zip.unzip_textract_zip_file(
+        path_to_zip_file = './tests/data_example/example.zip'
     )
 
-    unifed_dataframe = TextractZipToDataFrame.get_csv_table_from_unzipped_file(
-        directory_path_to_unzziped_zip =  './tests/data_example/unzipped'
-    )
+    unifed_dataframe = textract_zip.get_csv_table_from_unzipped_file()
 
     assert len(list_file_unzipped) > 0
     assert unifed_dataframe is not None
