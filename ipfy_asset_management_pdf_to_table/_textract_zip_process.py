@@ -3,8 +3,6 @@ from typing import List
 import zipfile
 import glob
 import os
-import os.path
-from os import path
 import shutil
 import pandas as pd
 
@@ -53,14 +51,14 @@ class TextractZipToDataFrame:
             unifed_table = pd.DataFrame()
 
         # Deleting an non-empty folder if it exists
-        if path.exists(self.directory_to_extract_to + "/__MACOSX/") is True:
+        if os.path.exists(self.directory_to_extract_to + "/__MACOSX/") is True:
             shutil.rmtree(
                 self.directory_to_extract_to + "/__MACOSX/", ignore_errors=True
             )
             print("Deleted __MACOSX directory successfully")
 
         # Delete all the file in folder
-        for f in os.listdir(self.directory_to_extract_to):
-            os.remove(os.path.join(self.directory_to_extract_to, f))
+        for file in os.listdir(self.directory_to_extract_to):
+            os.remove(os.path.join(self.directory_to_extract_to, file))
 
         return unifed_table
