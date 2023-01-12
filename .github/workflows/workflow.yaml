@@ -37,9 +37,9 @@ jobs:
         poetry run coverage run --source ${{ env.PROJECT_FOLDER }}/ -m pytest
         poetry run coverage xml
     - name: Install pypa/build
-          run: >-
-            poetry add
-            build
+      run: >-
+        poetry add
+        build
     - name: Build a binary wheel and a source tarball
       run: >-
         poetry build 
