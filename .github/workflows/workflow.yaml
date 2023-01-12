@@ -1,46 +1,59 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Worklfo for ipfy asset management pdf to table
+# name: Worklfo for ipfy asset management pdf to table
 
+# on:
+#   push:
+#     branches: [ master, main ]
+#   pull_request:
+#     branches: [ master, main ]
+# env:
+#   PROJECT_FOLDER: ipfy_asset_management_pdf_to_table
+#   PYTHON_VERSION: 3.9
+#   POETRY_VERSION: 1.1.14
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v3
+#       with:
+#         path: main
+#     - name: Setup python versions
+#       uses: actions/setup-python@v3
+#       with:
+#         python-version: ${{ env.PYTHON_VERSION }}
+#     - name: Install Poetry
+#       uses: abatilo/actions-poetry@v2.1.6
+#       with:
+#         poetry-version: ${{ env.POETRY_VERSION }}
+#     - name: Install Python dependencies
+#       working-directory: ./main
+#       run: poetry install
+#     - name: Test & Generate Coverage Report
+#       working-directory: ./main
+#       run: |
+#         poetry run coverage run --source ${{ env.PROJECT_FOLDER }}/ -m pytest
+#         poetry run coverage xml
+#     - name: Publish distribution 📦 to Test PyPI
+#       uses: JRubics/poetry-publish@v1.16
+#       with:
+#         password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+#         repository_url: https://test.pypi.org/legacy/
+
+name: Worklfo for ipfy asset management pdf to table
 on:
   push:
     branches: [ master, main ]
   pull_request:
     branches: [ master, main ]
-env:
-  PROJECT_FOLDER: ipfy_asset_management_pdf_to_table
-  PYTHON_VERSION: 3.9
-  POETRY_VERSION: 1.1.14
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        path: ./main
-    - name: Setup python versions
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ env.PYTHON_VERSION }}
-    - name: Install Poetry
-      uses: abatilo/actions-poetry@v2.1.6
-      with:
-        poetry-version: ${{ env.POETRY_VERSION }}
-    - name: Install Python dependencies
-      working-directory: ./main
-      run: poetry install
-      run: poetry publish --build
-    - name: Test & Generate Coverage Report
-      working-directory: ./main
-      run: |
-        poetry run coverage run --source ${{ env.PROJECT_FOLDER }}/ -m pytest
-        poetry run coverage xml
-    - name: Pypiserver Publish
-      working-directory: ./main
-    - name: Publish distribution 📦 to Test PyPI
-      uses: JRubics/poetry-publish@v1.16
-      with:
-        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-        repository_url: https://test.pypi.org/legacy/
+      - uses: actions/checkout@v2
+      - name: Build and publish to pypi
+        uses: JRubics/poetry-publish@v1.16
+        with:
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
