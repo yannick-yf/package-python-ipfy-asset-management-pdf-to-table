@@ -128,11 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-*.zip
-*.pdf
-*.csv
-*.json
-*.txt
 *.DS_Store
-*.png
 *.ipynb_checkpoints
+
+#!ipfy_asset_management_pdf_to_table/data/pdf_awstextract_output_zip/Releve_n_001_du_02_01_2023.zip

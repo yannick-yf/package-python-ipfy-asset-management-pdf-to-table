@@ -8,12 +8,12 @@ from ipfy_asset_management_pdf_to_table import (
 def test_textract_zip_process():
 
     list_file_unzipped = TextractZipToDataFrame.unzip_textract_zip_file(
-        path_to_zip_file = './ipfy_asset_management_pdf_to_table/data/pdf_awstextract_output_zip/Releve_n_001_du_02_01_2023.zip',
-        directory_to_extract_to = './ipfy_asset_management_pdf_to_table/data/unzipped_files'
+        path_to_zip_file = './tests/data_example/example.zip',
+        directory_to_extract_to = './tests/data_example/unzipped'
     )
 
     unifed_dataframe = TextractZipToDataFrame.get_csv_table_from_unzipped_file(
-        directory_path_to_unzziped_zip = './ipfy_asset_management_pdf_to_table/data/unzipped_files'
+        directory_path_to_unzziped_zip =  './tests/data_example/unzipped'
     )
 
     assert len(list_file_unzipped) > 0

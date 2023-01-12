@@ -4,6 +4,9 @@ import pandas as pd
 import zipfile
 import glob
 import os
+import os.path
+from os import path
+import shutil
 
 # class TextractZipProcessResult(pd.DataFrame):
 #     musid: int
@@ -44,6 +47,10 @@ class TextractZipToDataFrame:
             Delete all non csv file from the unzipped folder
             """
 
+            # # Delete __MACOSX if it exists
+            # if path.exists('./tests/data_example/unzipped/__MACOSX/') is True:
+            #     print('file to delete')
+            
             # Read all the file containing table into one unique table and return the table
             unifed_table = pd.concat(
                 map(
@@ -57,6 +64,11 @@ class TextractZipToDataFrame:
             
             if unifed_table.shape[0] == 0:
                 unifed_table = pd.DataFrame()
+
+            # Deleting an non-empty folder if it exists
+            if path.exists(directory_path_to_unzziped_zip + '/__MACOSX/') is True:
+                shutil.rmtree(directory_path_to_unzziped_zip + '/__MACOSX/', ignore_errors=True)
+                print("Deleted __MACOSX directory successfully" )
 
             # Delete all the file in folder
             for f in os.listdir(directory_path_to_unzziped_zip):
