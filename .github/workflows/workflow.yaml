@@ -36,19 +36,8 @@ jobs:
       run: |
         poetry run coverage run --source ${{ env.PROJECT_FOLDER }}/ -m pytest
         poetry run coverage xml
-    - name: Install pypa/build
-      run: >-
-        poetry add
-        build
-    - name: Build a binary wheel and a source tarball
-      run: >-
-        poetry build 
-        --format=sdist 
-        --format=wheel
-        outdir dist/
-        .
     - name: Publish distribution 📦 to Test PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
+      uses: JRubics/poetry-publish@v1.16
       with:
         password: ${{ secrets.TEST_PYPI_API_TOKEN }}
         repository_url: https://test.pypi.org/legacy/
