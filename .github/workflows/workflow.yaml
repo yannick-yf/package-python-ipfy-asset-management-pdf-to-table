@@ -4,7 +4,11 @@
 # name: Worklfo for ipfy asset management pdf to table
 
 name: Publish Python 🐍 distributions 📦 to PyPI and TestPyPI
-on: push
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
 jobs:
   build-n-publish:
     name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
