@@ -38,8 +38,7 @@ jobs:
         poetry run coverage xml
     - name: Build a binary wheel and a source tarball
       run: >-
-        poetry run python -m
-        build
+        poetry build
         --sdist
         --wheel
         --outdir dist/
