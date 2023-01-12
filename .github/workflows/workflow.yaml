@@ -41,7 +41,7 @@ jobs:
         poetry build 
         --format=sdist 
         --format=wheel
-        --outdir dist/
+        --format=outdir dist/
         .
     - name: Publish distribution 📦 to Test PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
