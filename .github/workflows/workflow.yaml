@@ -38,9 +38,9 @@ jobs:
         poetry run coverage xml
     - name: Build a binary wheel and a source tarball
       run: >-
-        poetry build
-        --sdist
-        --wheel
+        poetry build 
+        --format=sdist 
+        --format=wheel
         --outdir dist/
         .
     - name: Publish distribution 📦 to Test PyPI
