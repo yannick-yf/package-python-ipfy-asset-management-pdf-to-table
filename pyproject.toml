@@ -9,16 +9,12 @@ readme = "README.md"
 python = "^3.9"
 pandas = "^1.5.2"
 numpy = "^1.24.1"
-tabula-py = "^2.6.0"
-camelot-py = {extras = ["cv"], version = "^0.10.1"}
-ipykernel = "^6.20.0"
-PyPDF2 = "<3.0"
 pytest = "^7.2.0"
 pypiserver = "^1.5.1"
 typing = "3.5"
 pylint = "^2.15.10"
-sdist = "^0.0.0"
-wheel = "^0.38.4"
+# sdist = "^0.0.0"
+# wheel = "^0.38.4"
 
 [tool.poetry.dev-dependencies]
 coverage = {extras = ["toml"], version = "6.5.*"}
