@@ -19,7 +19,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        path: main
+        path: ./main
     - name: Setup python versions
       uses: actions/setup-python@v3
       with:
@@ -31,11 +31,14 @@ jobs:
     - name: Install Python dependencies
       working-directory: ./main
       run: poetry install
+      run: poetry publish --build
     - name: Test & Generate Coverage Report
       working-directory: ./main
       run: |
         poetry run coverage run --source ${{ env.PROJECT_FOLDER }}/ -m pytest
         poetry run coverage xml
+    - name: Pypiserver Publish
+      working-directory: ./main
     - name: Publish distribution 📦 to Test PyPI
       uses: JRubics/poetry-publish@v1.16
       with:
