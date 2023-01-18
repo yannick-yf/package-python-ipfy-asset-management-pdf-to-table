@@ -131,4 +131,7 @@ dmypy.json
 *.DS_Store
 *.ipynb_checkpoints
 
-#!ipfy_asset_management_pdf_to_table/data/pdf_awstextract_output_zip/Releve_n_001_du_02_01_2023.zip
+tests/data_example/example_BB_CC.zip
+tests/data_example/example_CA_CC.zip
+tests/data_example/example_CA_CEL.zip
+tests/data_example/example_CA_LVTA.zip
